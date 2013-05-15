@@ -4,6 +4,8 @@
  *
  * Trevor Fountain
  * April 2013
+ *
+ * Edited by Neil Logan
  */
 
 #include <stdio.h>
@@ -21,12 +23,14 @@ class TopStack
 {
 	protected:
 		std::stack<int> stack;
+
 	public:
 		/// Push a value onto the top of the stack
 		void push(int value);
 
 		/// Remove the topmost value from the stack and return it
-		int pop();
+		//o required to return anything
+		void pop();
 
 		/// Return the highest value currently on the stack
 		int getHighest();
@@ -34,19 +38,40 @@ class TopStack
 
 void TopStack::push(int value)
 {
-	// Implement me!
+	//Add to the top of the stack
+	stack.push(value);
 }
 
-int TopStack::pop()
+void TopStack::pop()
 {
-	// Implement me!
-	return 0;
+	//Remove from top of stack
+	stack.pop();
 }
 
 int TopStack::getHighest()
 {
-	// Implement me!
-	return 0;
+	//Get item of first item in stack
+	int highest = stack.top();
+
+	//Use a temporary stack to ensure the actual stack is maintained
+	std::stack<int> tempStack = stack;
+	
+	//Remove first item, as its already stored in "highest"
+	tempStack.pop();
+	
+	//While the stack is not empty...
+	while(!tempStack.empty())
+	{
+		//...check the next value on the stack. If higher than
+		//current highest, store the value...
+		if(tempStack.top() > highest) highest = tempStack.top();
+
+		//And remove the value from the stack
+		tempStack.pop();
+	}
+	
+	//Once all values are chacked (stack is empty) return the value
+	return highest;
 }
 
 int main(int argc, char **argv)
