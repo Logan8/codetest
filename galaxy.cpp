@@ -4,6 +4,8 @@
  *
  * Trevor Fountain
  * April 2013
+ *
+ * Edited by Neil Logan
  */
 
 #include <vector>
