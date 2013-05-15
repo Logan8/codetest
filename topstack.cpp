@@ -29,7 +29,7 @@ class TopStack
 		void push(int value);
 
 		/// Remove the topmost value from the stack and return it
-		//o required to return anything
+		//Not required to return anything, so void
 		void pop();
 
 		/// Return the highest value currently on the stack
