@@ -69,17 +69,11 @@ Galaxy::Galaxy()
 {
 	// Set up a simple galaxy
 	// ...with a few stars
-	//stars.push_back(new Star(0, 0));
-	//stars.push_back(new Star(50, 30));
-	//stars.push_back(new Star(100, 0));
-	//stars.push_back(new Star(40, -10));
-	//stars.push_back(new Star(60, -10));
-
 	stars.push_back(new Star(0, 0));
-	stars.push_back(new Star(1, 1));
-	stars.push_back(new Star(2, 2));
-	stars.push_back(new Star(3, 3));
-	stars.push_back(new Star(4, 4));
+	stars.push_back(new Star(50, 30));
+	stars.push_back(new Star(100, 0));
+	stars.push_back(new Star(40, -10));
+	stars.push_back(new Star(60, -10));
 
 	// ...and a few lanes between them
 	lanes[stars[0]].push_back(stars[1]);
@@ -111,7 +105,7 @@ Star *Galaxy::getStar(int index)
 StarList Galaxy::getRouteBetween(Star *a, Star *b)
 {
     StarList route;
-	std::queue<StarList> aQueue;
+    std::queue<StarList> aQueue;
 
 	//Add first star to route
     route.push_back(a);
